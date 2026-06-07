@@ -60,14 +60,14 @@ const Home = () => {
               transition={{ duration: 3, repeat: Infinity }}
               className="inline-flex rounded-full border border-candy-pink/20 bg-candy-pink/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-candy-pink neon-pulse"
             >
-              Y2K × makemepulse vibe
+              Y2K × 数字美学
             </motion.div>
             <h1 className="text-5xl font-black leading-[1.08] tracking-[-0.04em] text-white md:text-6xl lg:text-7xl">
-              Travel memories<br />
-              <span className="text-gradient">become design assets.</span>
+              旅行记忆<br />
+              <span className="text-gradient">化为设计资产。</span>
             </h1>
             <p className="max-w-xl text-lg leading-8 text-white/70">
-              Journey Unit Lab transforms travel fragments into reusable creative assets with AI-powered decomposition, emotional tagging, and inspiration synthesis.
+              将旅行碎片转化为可复用的创意资产——AI 驱动的拆解、情绪标记与灵感融合，赋能每一次设计探索。
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link
@@ -80,7 +80,7 @@ const Home = () => {
                 to={isAuthenticated ? '/assets' : '/login'}
                 className="inline-flex items-center justify-center rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-candy-blue hover:text-candy-blue"
               >
-                {isAuthenticated ? 'My Library' : 'Log in'}
+                {isAuthenticated ? '我的资产库' : '登录'}
               </Link>
             </div>
           </motion.div>
@@ -95,25 +95,25 @@ const Home = () => {
             <div className="absolute inset-0 rounded-[48px] bg-[conic-gradient(at_top,_rgba(255,255,255,0.06),_transparent_40%)] opacity-60" />
             <div className="relative space-y-6">
               <div className="rounded-[32px] border border-white/10 bg-white/5 p-5 shadow-neon-blue">
-                <p className="text-sm uppercase tracking-[0.35em] text-candy-yellow">Travel Pulse</p>
-                <h2 className="mt-3 text-2xl font-semibold text-white">Capture emotional triggers, scenes, and motion.</h2>
+                <p className="text-sm uppercase tracking-[0.35em] text-candy-yellow">旅行脉动</p>
+                <h2 className="mt-3 text-2xl font-semibold text-white">捕捉情绪触发点、场景与动态瞬间。</h2>
               </div>
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-5 hover:border-candy-pink/30 transition">
-                  <p className="text-sm uppercase tracking-[0.35em] text-candy-pink">Asset</p>
-                  <p className="mt-4 text-sm text-white/70">Photo, notes, route, sound snippet.</p>
+                  <p className="text-sm uppercase tracking-[0.35em] text-candy-pink">资产</p>
+                  <p className="mt-4 text-sm text-white/70">照片、笔记、路线、声音片段。</p>
                 </div>
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-5 hover:border-candy-blue/30 transition">
                   <p className="text-sm uppercase tracking-[0.35em] text-candy-blue">AI</p>
-                  <p className="mt-4 text-sm text-white/70">Decompose into 5 dimensions of design data.</p>
+                  <p className="mt-4 text-sm text-white/70">拆解为 5 个维度的设计数据。</p>
                 </div>
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-5 hover:border-candy-mint/30 transition">
-                  <p className="text-sm uppercase tracking-[0.35em] text-candy-mint">Search</p>
-                  <p className="mt-4 text-sm text-white/70">Find assets by mood, behavior, and vibe.</p>
+                  <p className="text-sm uppercase tracking-[0.35em] text-candy-mint">搜索</p>
+                  <p className="mt-4 text-sm text-white/70">按情绪、行为、氛围精准检索。</p>
                 </div>
                 <div className="rounded-3xl border border-white/10 bg-white/5 p-5 hover:border-candy-purple/30 transition">
-                  <p className="text-sm uppercase tracking-[0.35em] text-candy-purple">Inspire</p>
-                  <p className="mt-4 text-sm text-white/70">Generate new schemes from your archive.</p>
+                  <p className="text-sm uppercase tracking-[0.35em] text-candy-purple">灵感</p>
+                  <p className="mt-4 text-sm text-white/70">从你的档案中生成全新方案。</p>
                 </div>
               </div>
             </div>
@@ -130,15 +130,15 @@ const Home = () => {
             viewport={{ once: true }}
             className="text-center"
           >
-            <p className="text-sm uppercase tracking-[0.35em] text-candy-blue">How it works</p>
-            <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">From travel moment to design asset</h2>
+            <p className="text-sm uppercase tracking-[0.35em] text-candy-blue">使用流程</p>
+            <h2 className="mt-4 text-4xl font-bold text-white md:text-5xl">从旅行瞬间到设计资产</h2>
           </motion.div>
 
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <WorkflowStep step="01" title="Capture" desc="Upload photos, text notes, or route fragments from your journey." color="candy-pink" delay={0} />
-            <WorkflowStep step="02" title="Decompose" desc="AI extracts triggers, emotions, behaviors, and understanding." color="candy-purple" delay={0.1} />
-            <WorkflowStep step="03" title="Tag & Store" desc="Auto-generated multi-dimensional tags for precise searchability." color="candy-blue" delay={0.2} />
-            <WorkflowStep step="04" title="Synthesize" desc="Combine assets into fresh design concepts with AI inspiration." color="candy-mint" delay={0.3} />
+            <WorkflowStep step="01" title="采集" desc="上传旅程中的照片、文字笔记或路线片段。" color="candy-pink" delay={0} />
+            <WorkflowStep step="02" title="拆解" desc="AI 提取触发点、情绪、行为与认知理解。" color="candy-purple" delay={0.1} />
+            <WorkflowStep step="03" title="标记存储" desc="自动生成多维标签，实现精准检索。" color="candy-blue" delay={0.2} />
+            <WorkflowStep step="04" title="融合生成" desc="AI 灵感融合多资产，生成全新设计概念。" color="candy-mint" delay={0.3} />
           </div>
         </div>
       </section>
@@ -149,9 +149,9 @@ const Home = () => {
           <div className="rounded-[40px] border border-white/10 bg-black/40 p-10 shadow-glow backdrop-blur-xl">
             <div className="grid gap-8 text-center sm:grid-cols-3">
               {[
-                { label: 'AI Dimensions', value: '5', suffix: 'D', color: 'candy-pink' },
-                { label: 'Tag Categories', value: '4', suffix: '×', color: 'candy-purple' },
-                { label: 'Search Vectors', value: '∞', suffix: '', color: 'candy-blue' },
+                { label: 'AI 维度', value: '5', suffix: 'D', color: 'candy-pink' },
+                { label: '标签类别', value: '4', suffix: '×', color: 'candy-purple' },
+                { label: '搜索向量', value: '∞', suffix: '', color: 'candy-blue' },
               ].map((stat) => (
                 <motion.div
                   key={stat.label}
@@ -179,14 +179,14 @@ const Home = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl font-bold text-white">Ready to transform your travels?</h2>
-            <p className="mt-4 text-lg text-white/60">Upload your first experience fragment and watch AI turn it into a structured, searchable design asset.</p>
+            <h2 className="text-4xl font-bold text-white">准备好转化你的旅行了吗？</h2>
+            <p className="mt-4 text-lg text-white/60">上传你的第一个体验片段，见证 AI 如何将其转化为结构化、可检索的设计资产。</p>
             <div className="mt-8">
               <Link
                 to={isAuthenticated ? '/upload' : '/signup'}
                 className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-candy-pink via-candy-purple to-candy-blue px-8 py-4 text-sm font-semibold text-dark-bg shadow-neon-pink transition hover:scale-[1.02]"
               >
-                {isAuthenticated ? 'Upload an asset →' : 'Get started free →'}
+                {isAuthenticated ? '上传资产 →' : '免费开始 →'}
               </Link>
             </div>
           </motion.div>

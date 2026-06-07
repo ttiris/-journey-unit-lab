@@ -58,7 +58,7 @@ const InspirationGenerator = () => {
 
   const handleGenerate = async () => {
     if (selectedIds.length === 0) {
-      setError('Select at least one asset to generate inspiration.');
+      setError('请至少选择一个资产来生成灵感。');
       return;
     }
     setGenerating(true);
@@ -66,11 +66,11 @@ const InspirationGenerator = () => {
     setSuccessMsg('');
     try {
       const result = await inspirationAPI.generate(selectedIds, `Inspiration · ${new Date().toLocaleDateString()}`);
-      setSuccessMsg('Inspiration generated! Check the History tab.');
+      setSuccessMsg('灵感已生成！请查看历史记录。');
       setSelectedIds([]);
       fetchInspirations(1);
     } catch (err) {
-      setError(err?.error || 'Generation failed');
+      setError(err?.error || '生成失败');
     } finally {
       setGenerating(false);
     }
@@ -87,9 +87,9 @@ const InspirationGenerator = () => {
         >
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.35em] text-candy-yellow">Inspiration</p>
-              <h1 className="mt-3 text-4xl font-bold text-white">Design Inspiration Generator</h1>
-              <p className="mt-4 max-w-2xl text-white/70">Select your travel assets and let AI synthesize a unified design concept.</p>
+              <p className="text-sm uppercase tracking-[0.35em] text-candy-yellow">灵感</p>
+              <h1 className="mt-3 text-4xl font-bold text-white">设计灵感生成器</h1>
+              <p className="mt-4 max-w-2xl text-white/70">选择旅行资产，让 AI 融合生成统一的设计概念。</p>
             </div>
             <div className="flex gap-3">
               <button
@@ -101,7 +101,7 @@ const InspirationGenerator = () => {
                   }
                 `}
               >
-                Generate
+                生成
               </button>
               <button
                 onClick={() => { setActiveTab('history'); fetchInspirations(1); }}
@@ -112,7 +112,7 @@ const InspirationGenerator = () => {
                   }
                 `}
               >
-                History
+                历史记录
               </button>
             </div>
           </div>
@@ -127,20 +127,20 @@ const InspirationGenerator = () => {
           {activeTab === 'generate' && (
             <>
               <div className="mt-6 flex flex-wrap items-center gap-4 rounded-[28px] border border-white/10 bg-white/5 p-5 shadow-glow">
-                <span className="text-sm text-white/70">Selected: <strong className="text-candy-pink">{selectedIds.length}</strong> assets</span>
+                <span className="text-sm text-white/70">已选：<strong className="text-candy-pink">{selectedIds.length}</strong> 个资产</span>
                 <button
                   onClick={handleGenerate}
                   disabled={generating || selectedIds.length === 0}
                   className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-candy-pink via-candy-purple to-candy-blue px-8 py-3 text-sm font-semibold text-dark-bg shadow-glow transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
                 >
-                  {generating ? 'Generating inspiration…' : 'Generate Inspiration'}
+                  {generating ? '生成灵感中…' : '生成灵感'}
                 </button>
                 {selectedIds.length > 0 && (
                   <button
                     onClick={() => setSelectedIds([])}
                     className="rounded-full border border-white/10 px-4 py-2 text-xs text-white/50 transition hover:border-white/30"
                   >
-                    Clear selection
+                    清除选择
                   </button>
                 )}
               </div>
@@ -154,8 +154,8 @@ const InspirationGenerator = () => {
                   </div>
                 ) : assets.length === 0 ? (
                   <div className="rounded-[28px] border border-dashed border-white/10 bg-white/5 p-12 text-center">
-                    <p className="text-xl font-medium text-white/60">No assets available</p>
-                    <p className="mt-3 text-sm text-white/40">Upload assets first from the Upload page to generate inspiration.</p>
+                    <p className="text-xl font-medium text-white/60">暂无可用资产</p>
+                    <p className="mt-3 text-sm text-white/40">请先从上传页面上传资产以生成灵感。</p>
                   </div>
                 ) : (
                   <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -183,8 +183,8 @@ const InspirationGenerator = () => {
             <div className="mt-8 space-y-6">
               {inspirations.length === 0 ? (
                 <div className="rounded-[28px] border border-dashed border-white/10 bg-white/5 p-12 text-center">
-                  <p className="text-xl font-medium text-white/60">No inspirations yet</p>
-                  <p className="mt-3 text-sm text-white/40">Generate your first inspiration using the Generate tab.</p>
+                  <p className="text-xl font-medium text-white/60">还没有灵感记录</p>
+                  <p className="mt-3 text-sm text-white/40">使用生成标签页创建你的第一份灵感。</p>
                 </div>
               ) : (
                 <>
@@ -215,7 +215,7 @@ const InspirationGenerator = () => {
                               }
                             `}
                           >
-                            {insp.saved ? 'Saved' : 'Save'}
+                            {insp.saved ? '已保存' : '保存'}
                           </button>
                         </div>
                       </div>
@@ -228,7 +228,7 @@ const InspirationGenerator = () => {
 
                       {insp.combined_result?.design_suggestions?.length > 0 && (
                         <div className="mt-4">
-                          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-candy-yellow">Design Suggestions</p>
+                          <p className="text-sm font-semibold uppercase tracking-[0.28em] text-candy-yellow">设计建议</p>
                           <ul className="mt-2 ml-5 list-disc space-y-1 text-sm text-white/70">
                             {insp.combined_result.design_suggestions.map((s, idx) => (
                               <li key={idx}>{s}</li>
@@ -260,7 +260,7 @@ const InspirationGenerator = () => {
 
                       {insp.source_assets?.length > 0 && (
                         <p className="mt-4 text-xs text-white/30">
-                          Source assets: {insp.source_assets.map(a => a.title || a._id).join(', ')}
+                         来源资产：{insp.source_assets.map(a => a.title || a._id).join(', ')}
                         </p>
                       )}
                     </motion.div>

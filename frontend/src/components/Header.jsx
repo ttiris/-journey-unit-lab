@@ -22,24 +22,24 @@ const Header = () => {
             <NavLink to="/" className="text-lg font-semibold tracking-[0.12em] text-white transition hover:text-candy-pink">
               Journey Unit Lab
             </NavLink>
-            <p className="text-xs uppercase tracking-[0.25em] text-white/50">Design assets from travel fragments</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-white/50">旅行碎片 · 设计资产</p>
           </div>
         </div>
 
         <nav className="flex flex-wrap items-center gap-4 text-sm text-white/80">
           <NavLink to="/" className={({ isActive }) => `rounded-full px-3 py-2 transition ${isActive ? 'bg-white/10 text-white' : 'hover:bg-white/5'}`}>
-            Home
+            首页
           </NavLink>
           {isAuthenticated && (
             <>
               <NavLink to="/upload" className={({ isActive }) => `rounded-full px-3 py-2 transition ${isActive ? 'bg-white/10 text-white' : 'hover:bg-white/5'}`}>
-                Upload
+                上传
               </NavLink>
               <NavLink to="/assets" className={({ isActive }) => `rounded-full px-3 py-2 transition ${isActive ? 'bg-white/10 text-white' : 'hover:bg-white/5'}`}>
-                Library
+                资产库
               </NavLink>
               <NavLink to="/inspiration" className={({ isActive }) => `rounded-full px-3 py-2 transition ${isActive ? 'bg-white/10 text-white' : 'hover:bg-white/5'}`}>
-                Inspire
+                灵感
               </NavLink>
             </>
           )}
@@ -49,7 +49,7 @@ const Header = () => {
           {isAuthenticated ? (
             <>
               <div className="rounded-2xl bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.2em] text-white/80 ring-1 ring-white/10">
-                {user?.username || 'Designer'}
+                {user?.username || '设计师'}
               </div>
               <button
                 onClick={() => {
@@ -58,16 +58,16 @@ const Header = () => {
                 }}
                 className="rounded-full border border-candy-pink px-4 py-2 text-sm font-semibold text-candy-pink transition hover:bg-candy-pink/10"
               >
-                Logout
+                退出
               </button>
             </>
           ) : (
             <div className="flex items-center gap-3">
               <NavLink to="/login" className="rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-white transition hover:border-candy-blue hover:text-candy-blue">
-                Login
+                登录
               </NavLink>
               <NavLink to="/signup" className="rounded-full bg-candy-pink px-4 py-2 text-sm font-semibold text-dark-bg transition hover:bg-candy-pink/90">
-                Sign Up
+                注册
               </NavLink>
             </div>
           )}

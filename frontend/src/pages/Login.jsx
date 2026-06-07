@@ -23,7 +23,7 @@ const Login = () => {
     setFormError('');
 
     if (!email || !password) {
-      setFormError('Please provide both email and password.');
+      setFormError('请输入邮箱和密码。');
       return;
     }
 
@@ -32,7 +32,7 @@ const Login = () => {
       await login(email, password);
       navigate('/upload');
     } catch (err) {
-      setFormError(err.message || 'Login failed');
+      setFormError(err.message || '登录失败');
     } finally {
       setSubmitting(false);
     }
@@ -49,13 +49,13 @@ const Login = () => {
       <div className="absolute right-0 bottom-10 h-72 w-72 rounded-full bg-candy-blue/15 blur-3xl" />
       <div className="mx-auto max-w-7xl px-6">
         <AuthCard
-          title="Welcome back"
-          subtitle="Log in to continue building your travel-inspired design library."
+          title="欢迎回来"
+          subtitle="登录以继续构建你的旅行灵感设计库。"
           footer={
             <p>
-              Don’t have an account?{' '}
+              还没有账号？{' '}
               <Link to="/signup" className="text-candy-pink hover:text-candy-pink/90">
-                Sign up
+                注册
               </Link>
             </p>
           }
@@ -75,7 +75,7 @@ const Login = () => {
                 />
               </label>
               <label className="flex flex-col gap-2 text-sm text-white/70">
-                Password
+                密码
                 <input
                   type="password"
                   value={password}
@@ -90,7 +90,7 @@ const Login = () => {
               disabled={submitting}
               className="w-full rounded-3xl bg-gradient-to-r from-candy-pink via-candy-purple to-candy-blue px-5 py-3 text-sm font-semibold text-dark-bg shadow-glow transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {submitting ? 'Logging in…' : 'Log in'}
+              {submitting ? '登录中…' : '登录'}
             </button>
           </form>
         </AuthCard>

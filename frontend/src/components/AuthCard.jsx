@@ -9,7 +9,7 @@ const AuthCard = ({ title, subtitle, children, footer }) => (
   >
     <div className="space-y-3 text-center">
       <div className="inline-flex rounded-full bg-candy-pink/20 px-4 py-1 text-xs uppercase tracking-[0.35em] text-candy-pink">
-        design login
+        设计登录
       </div>
       <h1 className="text-3xl font-bold text-white">{title}</h1>
       <p className="text-sm text-white/70">{subtitle}</p>

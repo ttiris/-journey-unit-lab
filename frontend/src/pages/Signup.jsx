@@ -24,12 +24,12 @@ const Signup = () => {
     setFormError('');
 
     if (!email || !username || !password || !confirmPassword) {
-      setFormError('Please fill in every field.');
+      setFormError('请填写所有字段。');
       return;
     }
 
     if (password !== confirmPassword) {
-      setFormError('Passwords do not match.');
+      setFormError('两次密码不一致。');
       return;
     }
 
@@ -38,7 +38,7 @@ const Signup = () => {
       await register(email, username, password);
       navigate('/upload');
     } catch (err) {
-      setFormError(err.message || 'Registration failed');
+      setFormError(err.message || '注册失败');
     } finally {
       setSubmitting(false);
     }
@@ -55,13 +55,13 @@ const Signup = () => {
       <div className="absolute right-8 bottom-20 h-72 w-72 rounded-full bg-candy-purple/15 blur-3xl" />
       <div className="mx-auto max-w-7xl px-6">
         <AuthCard
-          title="Create your account"
-          subtitle="Join the lab to turn your travel moments into active design assets."
+          title="创建账号"
+          subtitle="加入实验室，将旅行瞬间转化为鲜活的设计资产。"
           footer={
             <p>
-              Already have an account?{' '}
+              已有账号？{' '}
               <Link to="/login" className="text-candy-blue hover:text-candy-blue/90">
-                Log in
+                登录
               </Link>
             </p>
           }
@@ -81,7 +81,7 @@ const Signup = () => {
                 />
               </label>
               <label className="flex flex-col gap-2 text-sm text-white/70">
-                Username
+                用户名
                 <input
                   type="text"
                   value={username}
@@ -96,17 +96,17 @@ const Signup = () => {
                   type="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  placeholder="Create a strong password"
+                  placeholder="设置一个强密码"
                   className="rounded-3xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-white/40"
                 />
               </label>
               <label className="flex flex-col gap-2 text-sm text-white/70">
-                Confirm Password
+                确认密码
                 <input
                   type="password"
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
-                  placeholder="Repeat password"
+                  placeholder="再次输入密码"
                   className="rounded-3xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-white/40"
                 />
               </label>
@@ -116,7 +116,7 @@ const Signup = () => {
               disabled={submitting}
               className="w-full rounded-3xl bg-gradient-to-r from-candy-blue via-candy-purple to-candy-pink px-5 py-3 text-sm font-semibold text-dark-bg shadow-glow transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {submitting ? 'Creating account…' : 'Create account'}
+              {submitting ? '创建中…' : '创建账号'}
             </button>
           </form>
         </AuthCard>

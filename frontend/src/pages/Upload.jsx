@@ -25,7 +25,7 @@ const Upload = () => {
     setStatusMessage('');
 
     if (!description && files.length === 0) {
-      setError('Please add a description or select at least one file.');
+      setError('请添加描述或至少选择一个文件。');
       return;
     }
 
@@ -42,13 +42,13 @@ const Upload = () => {
     try {
       setLoading(true);
       const response = await assetAPI.create(formData);
-      setStatusMessage('Upload successful! Asset parsed and saved.');
+      setStatusMessage('上传成功！资产已解析并保存。');
       setTitle('');
       setDescription('');
       setPlaceName('');
       setFiles([]);
     } catch (uploadError) {
-      setError(uploadError?.error || uploadError?.message || 'Upload failed.');
+      setError(uploadError?.error || uploadError?.message || '上传失败。');
     } finally {
       setLoading(false);
     }
@@ -65,33 +65,33 @@ const Upload = () => {
         >
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.35em] text-candy-pink">Asset upload</p>
-              <h1 className="mt-3 text-4xl font-bold text-white">Create a design asset from travel fragments.</h1>
-              <p className="mt-4 max-w-2xl text-white/70">Upload images, audio or text notes and let the AI extract triggers, emotions, behaviors, and scenario tags.</p>
+              <p className="text-sm uppercase tracking-[0.35em] text-candy-pink">资产上传</p>
+              <h1 className="mt-3 text-4xl font-bold text-white">从旅行碎片创建设计资产。</h1>
+              <p className="mt-4 max-w-2xl text-white/70">上传图片、音频或文字笔记，让 AI 提取触发点、情绪、行为和场景标签。</p>
             </div>
             <div className="rounded-[28px] border border-candy-blue/20 bg-white/5 px-5 py-4 text-xs uppercase tracking-[0.35em] text-candy-blue shadow-neon-blue">
-              AI asset parser ready
+              AI 解析引擎就绪
             </div>
           </div>
 
           <form onSubmit={handleUpload} className="mt-10 space-y-8">
             <div className="grid gap-6 lg:grid-cols-2">
               <label className="block rounded-[24px] border border-white/10 bg-white/5 p-5 text-sm text-white/80 shadow-glow">
-                <span className="text-white">Asset title</span>
+                <span className="text-white">资产标题</span>
                 <input
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  placeholder="Morning market stroll"
+                  placeholder="清晨市场漫步"
                   className="mt-3 w-full rounded-[20px] border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-candy-pink"
                 />
               </label>
 
               <label className="block rounded-[24px] border border-white/10 bg-white/5 p-5 text-sm text-white/80 shadow-glow">
-                <span className="text-white">Location or scene</span>
+                <span className="text-white">地点 / 场景</span>
                 <input
                   value={placeName}
                   onChange={(e) => setPlaceName(e.target.value)}
-                  placeholder="Taipei night market"
+                  placeholder="台北夜市"
                   className="mt-3 w-full rounded-[20px] border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-candy-blue"
                 />
               </label>
@@ -100,10 +100,10 @@ const Upload = () => {
             <div className="rounded-[32px] border border-white/10 bg-white/5 p-6 shadow-glow">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div>
-                  <p className="text-sm uppercase tracking-[0.35em] text-candy-yellow">Upload files</p>
-                  <p className="mt-2 text-sm text-white/70">Drag images, audio, or upload your travel notes directly.</p>
+                  <p className="text-sm uppercase tracking-[0.35em] text-candy-yellow">上传文件</p>
+                  <p className="mt-2 text-sm text-white/70">拖拽图片、音频，或直接上传旅行笔记。</p>
                 </div>
-                <span className="rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-white/70">Max 6 files</span>
+                <span className="rounded-full bg-white/10 px-4 py-2 text-xs uppercase tracking-[0.35em] text-white/70">最多 6 个文件</span>
               </div>
               <div className="mt-6 rounded-[28px] border border-dashed border-white/20 bg-black/20 p-8 text-center text-white/60">
                 <input
@@ -115,9 +115,9 @@ const Upload = () => {
                   id="asset-upload-input"
                 />
                 <label htmlFor="asset-upload-input" className="cursor-pointer rounded-full border border-candy-pink px-6 py-3 text-sm font-semibold text-candy-pink transition hover:bg-candy-pink/10">
-                  Select files
+                  选择文件
                 </label>
-                <p className="mt-4 text-sm">or drag files here from your desktop.</p>
+                <p className="mt-4 text-sm">或从桌面拖拽文件到此处。</p>
               </div>
               {files.length > 0 && (
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -137,11 +137,11 @@ const Upload = () => {
             </div>
 
             <label className="block rounded-[24px] border border-white/10 bg-white/5 p-5 text-sm text-white/80 shadow-glow">
-              <span className="text-white">Experience description</span>
+              <span className="text-white">体验描述</span>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                placeholder="Describe the moment, mood, colors, textures, and behaviors."
+                placeholder="描述当下的瞬间、情绪、色彩、质感与行为。"
                 rows={6}
                 className="mt-3 w-full rounded-[20px] border border-white/10 bg-black/30 px-4 py-3 text-white outline-none transition focus:border-candy-purple"
               />
@@ -149,16 +149,16 @@ const Upload = () => {
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center gap-3 rounded-[24px] border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/80 shadow-glow">
-                <span className="text-white/70">Source type:</span>
+                <span className="text-white/70">来源类型：</span>
                 <select
                   value={sourceType}
                   onChange={(e) => setSourceType(e.target.value)}
                   className="rounded-2xl border border-white/10 bg-black/30 px-4 py-2 text-white outline-none"
                 >
-                  <option value="photo">Photo</option>
-                  <option value="audio">Audio</option>
-                  <option value="text">Text</option>
-                  <option value="mixed">Mixed</option>
+                  <option value="photo">照片</option>
+                  <option value="audio">音频</option>
+                  <option value="text">文字</option>
+                  <option value="mixed">混合</option>
                 </select>
               </div>
               <button
@@ -166,7 +166,7 @@ const Upload = () => {
                 disabled={loading}
                 className="inline-flex items-center justify-center rounded-full bg-gradient-to-r from-candy-pink via-candy-purple to-candy-blue px-8 py-3 text-sm font-semibold text-dark-bg shadow-glow transition hover:scale-[1.01] disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {loading ? 'Parsing asset…' : 'Upload and parse'}
+                {loading ? '解析中…' : '上传并解析'}
               </button>
             </div>
 

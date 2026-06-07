@@ -33,7 +33,7 @@ const AssetLibrary = () => {
       setAssets(response.assets || []);
       setPagination(response.pagination || { page, totalPages: 1, total: 0 });
     } catch (err) {
-      setError(err?.error || 'Failed to load assets');
+      setError(err?.error || '加载资产失败');
     } finally {
       setLoading(false);
     }
@@ -86,10 +86,10 @@ const AssetLibrary = () => {
         >
           <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="text-sm uppercase tracking-[0.35em] text-candy-purple">Library</p>
-              <h1 className="mt-3 text-4xl font-bold text-white">Your Design Assets</h1>
+              <p className="text-sm uppercase tracking-[0.35em] text-candy-purple">资产库</p>
+              <h1 className="mt-3 text-4xl font-bold text-white">你的设计资产</h1>
               <p className="mt-4 max-w-2xl text-white/70">
-                Browse, filter, and manage your AI-parsed travel assets. {pagination.total > 0 && <span className="text-candy-pink">{pagination.total} assets found</span>}
+                浏览、筛选和管理 AI 解析后的旅行资产。 {pagination.total > 0 && <span className="text-candy-pink">共 {pagination.total} 个资产</span>}
               </p>
             </div>
           </div>
@@ -97,28 +97,28 @@ const AssetLibrary = () => {
           {/* Tag Filter Section */}
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <TagFilter
-              label="Emotions"
+              label="情绪"
               tags={availableTags.emotions}
               selected={selectedTags.emotions}
               onChange={(tag) => handleTagToggle('emotions', tag)}
               colorClass="candy-pink"
             />
             <TagFilter
-              label="Behaviors"
+              label="行为"
               tags={availableTags.behaviors}
               selected={selectedTags.behaviors}
               onChange={(tag) => handleTagToggle('behaviors', tag)}
               colorClass="candy-blue"
             />
             <TagFilter
-              label="Scenarios"
+              label="场景"
               tags={availableTags.scenarios}
               selected={selectedTags.scenarios}
               onChange={(tag) => handleTagToggle('scenarios', tag)}
               colorClass="candy-mint"
             />
             <TagFilter
-              label="Creativity Types"
+              label="创意类型"
               tags={availableTags.creativity_types}
               selected={selectedTags.creativity_types}
               onChange={(tag) => handleTagToggle('creativity_types', tag)}
@@ -128,12 +128,12 @@ const AssetLibrary = () => {
 
           {hasActiveFilters && (
             <div className="mt-4 flex items-center gap-3">
-              <span className="text-xs text-white/50">Active filters</span>
+              <span className="text-xs text-white/50">当前筛选</span>
               <button
                 onClick={clearFilters}
                 className="rounded-full border border-candy-pink/30 px-4 py-1 text-[11px] uppercase tracking-[0.28em] text-candy-pink transition hover:bg-candy-pink/10"
               >
-                Clear all
+                清除全部
               </button>
             </div>
           )}
@@ -152,8 +152,8 @@ const AssetLibrary = () => {
               </div>
             ) : assets.length === 0 ? (
               <div className="rounded-[28px] border border-dashed border-white/10 bg-white/5 p-12 text-center">
-                <p className="text-xl font-medium text-white/60">No assets yet</p>
-                <p className="mt-3 text-sm text-white/40">Upload your first travel fragment from the Upload page.</p>
+                <p className="text-xl font-medium text-white/60">还没有资产</p>
+                <p className="mt-3 text-sm text-white/40">从上传页面添加你的第一个旅行片段。</p>
               </div>
             ) : (
               <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -205,7 +205,7 @@ const AssetLibrary = () => {
                 <div className="mt-6 space-y-5">
                   {detailAsset.parsed_data.triggers?.length > 0 && (
                     <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.28em] text-candy-yellow">Triggers</p>
+                      <p className="text-sm font-semibold uppercase tracking-[0.28em] text-candy-yellow">触发点</p>
                       <div className="mt-2 flex flex-wrap gap-2">
                         {detailAsset.parsed_data.triggers.map((t) => (
                           <span key={t} className="rounded-full bg-candy-yellow/10 px-3 py-1 text-xs text-candy-yellow">{t}</span>
@@ -216,7 +216,7 @@ const AssetLibrary = () => {
 
                   {detailAsset.parsed_data.emotional_reactions?.length > 0 && (
                     <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.28em] text-candy-pink">Emotional Reactions</p>
+                      <p className="text-sm font-semibold uppercase tracking-[0.28em] text-candy-pink">情绪反应</p>
                       <div className="mt-2 flex flex-wrap gap-2">
                         {detailAsset.parsed_data.emotional_reactions.map((e) => (
                           <span key={e} className="rounded-full bg-candy-pink/10 px-3 py-1 text-xs text-candy-pink">{e}</span>
@@ -227,7 +227,7 @@ const AssetLibrary = () => {
 
                   {detailAsset.parsed_data.behaviors?.length > 0 && (
                     <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.28em] text-candy-blue">Behaviors</p>
+                      <p className="text-sm font-semibold uppercase tracking-[0.28em] text-candy-blue">行为</p>
                       <div className="mt-2 flex flex-wrap gap-2">
                         {detailAsset.parsed_data.behaviors.map((b) => (
                           <span key={b} className="rounded-full bg-candy-blue/10 px-3 py-1 text-xs text-candy-blue">{b}</span>
@@ -238,7 +238,7 @@ const AssetLibrary = () => {
 
                   {detailAsset.parsed_data.cognitive_understanding && (
                     <div>
-                      <p className="text-sm font-semibold uppercase tracking-[0.28em] text-candy-purple">Understanding</p>
+                      <p className="text-sm font-semibold uppercase tracking-[0.28em] text-candy-purple">认知理解</p>
                       <p className="mt-2 rounded-2xl border border-white/5 bg-white/5 px-4 py-3 text-sm italic text-white/70">
                         &ldquo;{detailAsset.parsed_data.cognitive_understanding}&rdquo;
                       </p>
@@ -250,7 +250,7 @@ const AssetLibrary = () => {
                     <div className="grid gap-3 sm:grid-cols-2">
                       {detailAsset.parsed_data.auto_tags.emotions?.length > 0 && (
                         <div>
-                          <p className="text-xs uppercase tracking-[0.24em] text-white/50">Emotion Tags</p>
+                          <p className="text-xs uppercase tracking-[0.24em] text-white/50">情绪标签</p>
                           <div className="mt-1 flex flex-wrap gap-1">
                             {detailAsset.parsed_data.auto_tags.emotions.map((t) => (
                               <span key={t} className="rounded-lg bg-candy-pink/10 px-2 py-0.5 text-[10px] text-candy-pink">{t}</span>
@@ -260,7 +260,7 @@ const AssetLibrary = () => {
                       )}
                       {detailAsset.parsed_data.auto_tags.behaviors?.length > 0 && (
                         <div>
-                          <p className="text-xs uppercase tracking-[0.24em] text-white/50">Behavior Tags</p>
+                          <p className="text-xs uppercase tracking-[0.24em] text-white/50">行为标签</p>
                           <div className="mt-1 flex flex-wrap gap-1">
                             {detailAsset.parsed_data.auto_tags.behaviors.map((t) => (
                               <span key={t} className="rounded-lg bg-candy-blue/10 px-2 py-0.5 text-[10px] text-candy-blue">{t}</span>
@@ -270,7 +270,7 @@ const AssetLibrary = () => {
                       )}
                       {detailAsset.parsed_data.auto_tags.scenarios?.length > 0 && (
                         <div>
-                          <p className="text-xs uppercase tracking-[0.24em] text-white/50">Scenario Tags</p>
+                          <p className="text-xs uppercase tracking-[0.24em] text-white/50">场景标签</p>
                           <div className="mt-1 flex flex-wrap gap-1">
                             {detailAsset.parsed_data.auto_tags.scenarios.map((t) => (
                               <span key={t} className="rounded-lg bg-candy-mint/10 px-2 py-0.5 text-[10px] text-candy-mint">{t}</span>
@@ -280,7 +280,7 @@ const AssetLibrary = () => {
                       )}
                       {detailAsset.parsed_data.auto_tags.creativity_types?.length > 0 && (
                         <div>
-                          <p className="text-xs uppercase tracking-[0.24em] text-white/50">Creativity Tags</p>
+                          <p className="text-xs uppercase tracking-[0.24em] text-white/50">创意标签</p>
                           <div className="mt-1 flex flex-wrap gap-1">
                             {detailAsset.parsed_data.auto_tags.creativity_types.map((t) => (
                               <span key={t} className="rounded-lg bg-candy-purple/10 px-2 py-0.5 text-[10px] text-candy-purple">{t}</span>

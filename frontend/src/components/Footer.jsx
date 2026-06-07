@@ -9,18 +9,18 @@ const Footer = () => (
             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-candy-pink via-candy-purple to-candy-blue text-xs font-bold text-dark-bg">JU</div>
             <span className="text-sm font-semibold tracking-[0.12em] text-white">Journey Unit Lab</span>
           </div>
-          <p className="mt-4 text-xs text-white/40">AI-powered design asset platform turning travel fragments into creative fuel.</p>
+          <p className="mt-4 text-xs text-white/40">AI 驱动的设计资产平台，将旅行碎片转化为创意燃料。</p>
         </div>
         <div>
-          <p className="text-xs uppercase tracking-[0.35em] text-white/50">Platform</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-white/50">平台</p>
           <div className="mt-4 flex flex-col gap-2">
-            <Link to="/upload" className="text-sm text-white/60 transition hover:text-candy-pink">Upload</Link>
-            <Link to="/assets" className="text-sm text-white/60 transition hover:text-candy-blue">Library</Link>
-            <Link to="/inspiration" className="text-sm text-white/60 transition hover:text-candy-purple">Inspiration</Link>
+            <Link to="/upload" className="text-sm text-white/60 transition hover:text-candy-pink">上传</Link>
+            <Link to="/assets" className="text-sm text-white/60 transition hover:text-candy-blue">资产库</Link>
+            <Link to="/inspiration" className="text-sm text-white/60 transition hover:text-candy-purple">灵感</Link>
           </div>
         </div>
         <div>
-          <p className="text-xs uppercase tracking-[0.35em] text-white/50">Technology</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-white/50">技术</p>
           <div className="mt-4 flex flex-col gap-2">
             <span className="text-sm text-white/40">React · Vite</span>
             <span className="text-sm text-white/40">Node.js · Express</span>
@@ -28,16 +28,16 @@ const Footer = () => (
           </div>
         </div>
         <div>
-          <p className="text-xs uppercase tracking-[0.35em] text-white/50">Vibe</p>
+          <p className="text-xs uppercase tracking-[0.35em] text-white/50">风格</p>
           <div className="mt-4 flex flex-col gap-2">
-            <span className="text-sm text-white/40">Y2K Millennium</span>
-            <span className="text-sm text-white/40">Candy Color Palette</span>
-            <span className="text-sm text-white/40">Glass Morphism</span>
+            <span className="text-sm text-white/40">Y2K 千禧美学</span>
+            <span className="text-sm text-white/40">糖果色系</span>
+            <span className="text-sm text-white/40">玻璃拟态</span>
           </div>
         </div>
       </div>
       <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-white/5 pt-6">
-        <p className="text-[11px] text-white/30">© 2026 Journey Unit Lab. Design assets from travel fragments.</p>
+        <p className="text-[11px] text-white/30">© 2026 Journey Unit Lab · 旅行碎片，设计资产</p>
         <div className="flex gap-4">
           <span className="h-2 w-2 rounded-full bg-candy-pink/60" />
           <span className="h-2 w-2 rounded-full bg-candy-purple/60" />
