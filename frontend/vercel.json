@@ -1,0 +1,21 @@
+{
+  "version": 3,
+  "build": {
+    "env": {
+      "VITE_API_URL": "https://your-backend.example.com/api",
+      "VITE_API_TIMEOUT": "30000"
+    }
+  },
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ]
+}

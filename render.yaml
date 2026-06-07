@@ -1,0 +1,19 @@
+services:
+  - type: web_service
+    name: journey-unit-lab-backend
+    env: node
+    region: oregon
+    branch: main
+    root: backend
+    buildCommand: npm install
+    startCommand: npm start
+    plan: starter
+
+  - type: static_site
+    name: journey-unit-lab-frontend
+    env: static
+    region: oregon
+    branch: main
+    root: frontend
+    buildCommand: npm install && npm run build
+    publishPath: dist

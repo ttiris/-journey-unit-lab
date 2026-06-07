@@ -1,0 +1,19 @@
+{
+  "name": "journey-unit-lab",
+  "services": [
+    {
+      "name": "backend",
+      "type": "docker",
+      "root": "backend",
+      "buildCommand": "npm install",
+      "startCommand": "npm start"
+    },
+    {
+      "name": "frontend",
+      "type": "static",
+      "root": "frontend",
+      "buildCommand": "npm install && npm run build",
+      "publishPath": "dist"
+    }
+  ]
+}
